@@ -1,70 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Container, Row } from "reactstrap";
-import imageProfile from '../../assets/images/oyelolaBk.jpeg';
+import React from 'react';
+import { Col, Container, Row } from 'reactstrap';
 
 export interface IHeaderProps {
-  height?: string;
-  image?: string;
-  book: string;
-  author: string;
-  conference: string;
+    height?: string;
+    image?: string;
+    name: string;
+    title: string;
 }
 
 const Header: React.FunctionComponent<IHeaderProps> = (props) => {
-  const { children, image, book, author, conference } = props;
-  const list = [book, conference, author];
-  const ref = ["/books", "/conference", "/bio"];
-  const headerStyle = {
-    background:
-      "linear-gradient(rgba(36, 20, 38, 0.5), rgba(36, 39, 38, 0.5)), url(" +
-      image +
-      ") no-repeat center center fixed",
-    WebkitBackgroundSize: "cover",
-    MozBackgroundSize: "cover",
-    OBackgroundSize: "cover",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    width: "100%",
-    height: "100vh",
-  };
-  const textStyle = {
-    marginTop: 200,
-    textDecoration: "underline",
-    textDecorationColor: "white",
-    color: "white",
-    letterSpacing:2,
-    fontSize:35,
+    const { children, image, title, name, height } = props;
 
-  };
+    const headerStyle = {
+        background: 'linear-gradient(rgba(36, 20, 38, 0.5), rgba(36, 39, 38, 0.5)), url(' + image + ') no-repeat center center fixed',
+        WebkitBackgroundSize: 'cover',
+        MozBackgroundSize: 'cover',
+        OBackgroundSize: 'cover',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        width: '100%',
+        height: height
+    };
+    const textStyle = {
+        marginTop: 150
+    };
 
-  return (
-    <header style={headerStyle}>
-      <Container>
-        <Row>
-          <div style={textStyle}>
-            <ul>
-              {list.map(function (item, index) {
-                return (
-                  <ul>
-                    <div style={{marginTop:25}}><Link style={{color:'white'}} to={ref[index]}>{item}</Link></div>
-                  </ul>
-                );
-              })}
-            </ul>
-
-            {children}
-          </div>
-        </Row>
-      </Container>
-    </header>
-  );
+    return (
+        <header style={headerStyle}>
+            <Container>
+                <Row>
+                    <Col style={textStyle}>
+                        <h1 className="display-4 text-white mt-5 mb-2">{name}</h1>
+                        <h3 className="mb-5 text-white">{title}</h3>
+                        {children}
+                    </Col>
+                </Row>
+            </Container>
+        </header>
+    );
 };
 Header.defaultProps = {
-  // height: '100%',
-  image:imageProfile,
-    
+    height: '50vh',
+    image: process.env.PUBLIC_URL + 'oyelolaBk.jpg'
 };
 
 export default Header;

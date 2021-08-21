@@ -1,47 +1,55 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Col, Row } from "reactstrap";
-import Container from "reactstrap/es/Container";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button, Col, Row } from 'reactstrap';
+import Container from 'reactstrap/es/Container';
 
+import VideoPlayer from '../videoplayer';
+import './footer.css';
 
 export interface INavigationProps {}
 
 const FooterPage: React.FunctionComponent<INavigationProps> = (props) => {
-const list=["Bio","Contact", "Publications", "Resume"]
-const navigate=["/bio", "/contact", "/conference", "/resume"]
-    return(
-        <footer className="footer" style={{ backgroundColor:"white"}}>
-           <br/>
-            <Container fluid className="text-center text-md-left">
-        <Row>
-          <Col md="6">
-            <h5 className="title">About Author</h5>
-            <p>
-              Here you can use rows and columns here to organize your footer
-              content.
-            </p>
-          </Col>
-          <Col md="6">
-            <h5 className="title">Quick Links</h5>
-            <ul  >
-            {list.map(function (item, index) {
-              return <li  className="list-unstyled">
-                <Link to={navigate[index]} style={{color:'blue'}}>{item}</Link>
-              </li>
-            })}
-              
-            </ul>
-          </Col>
-          
-        </Row>
-      </Container>
+    return (
+        <footer className="footer" style={{ backgroundColor: 'white' }}>
+            <br />
+            <hr />
+            <Row>
+                <Container fluid className="text-center py-3">
+                    <h5>Social Media</h5>
+                    <Row style={{ flex: 1, alignItems: 'center', justifyContent: 'space-evenly' }}>
+                        {/* <VideoPlayer logo={process.env.PUBLIC_URL + 'oyelolaBk.jpg'} video={process.env.PUBLIC_URL + '7news.mp4'} /> */}
+                        <ul className="social-menu ">
+                            <li>
+                                <a href="https://www.facebook.com/prince.oyelola.3">
+                                    <i className="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/oyelola-adegboye-phd-cstat-csci-fimc-cmc-15495423/">
+                                    <i className="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/">
+                                    <i className="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        {/* <VideoPlayer logo={process.env.PUBLIC_URL + 'oyelolaBk.jpg'} video={process.env.PUBLIC_URL + 'WIN_news.mp4'} /> */}
+                    </Row>
+                </Container>
+            </Row>
             <div className="footer-copyright text-center py-3">
-        <Container fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://adedayoadegboye.xyz" rel="noopener noreferrer" target="_blank" style={{color:"blue"}}> adedayoadegboye.xyz </a>
-        </Container>
-      </div>
+                <Container fluid>
+                    &copy; {new Date().getFullYear()} Copyright:{' '}
+                    <a href="https://www.linkedin.com/in/majeed-adegboye-47189142/" rel="noopener noreferrer" target="_blank" style={{ color: 'blue' }}>
+                        {' '}
+                        Adedayo Adegboye{' '}
+                    </a>
+                </Container>
+            </div>
         </footer>
-    )
-}
+    );
+};
 
 export default FooterPage;
