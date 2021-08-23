@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import IPageProps from '../interfaces/pages';
 import PageHeader from '../components/pageheader';
 // import axios from 'axios';
 // import config from '../config/config';
-// import LoadingComponent from '../components/loading_components';
+import LoadingComponent from '../components/loading_components';
 // import ISight from '../interfaces/sight';
 import CardTemplate from '../components/card_template';
 // import ErrorText from '../components/errortext';
@@ -19,7 +19,7 @@ import * as eiffel from '../assets/sights/eiffel.png';
 
 const SightSoundPage: React.FunctionComponent<IPageProps> = (props) => {
     // const [sightpictures, setSightsPictures] = useState<ISight[]>([]);
-    // const [loading, setLoading] = useState<boolean>(true);
+    const [loading, setLoading] = useState<boolean>(true);
     // const [error, setError] = useState<string>('');
 
     const sightsArrayPicture = [
@@ -61,10 +61,13 @@ const SightSoundPage: React.FunctionComponent<IPageProps> = (props) => {
             picture: eiffel.default,
         }
     ];
-    // useEffect(() => {
-    //     getAllSightsSound();
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+        // getAllSightsSound();
 
-    // }, []);
+    }, []);
 
     // const getAllSightsSound = async () => {
     //     try {
@@ -89,9 +92,9 @@ const SightSoundPage: React.FunctionComponent<IPageProps> = (props) => {
     // };
     // console.log(sightpictures);
    
-    // if (loading) {
-    //     return <LoadingComponent>Loading Pictures...</LoadingComponent>;
-    // }
+    if (loading) {
+        return <LoadingComponent>Loading Pictures...</LoadingComponent>;
+    }
 
     return (
         <PageHeader title="Sights">

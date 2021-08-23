@@ -8,6 +8,7 @@ import HomeGridLayout from '../components/homegridlayout'
 
 
 const HomePage: React.FunctionComponent<IPageProps> = (props) => {
+    
 
     return(
         <Container fluid className="p-0">

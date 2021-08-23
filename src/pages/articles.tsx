@@ -45,7 +45,7 @@ const ArticlePage: React.FunctionComponent<IErrorProps & RouteComponentProps<any
     };
 
     if (loading) {
-        return <LoadingComponent>Loading Bio...</LoadingComponent>;
+        return <LoadingComponent>Loading Article...</LoadingComponent>;
     }
 
     return (

@@ -19,6 +19,7 @@ import MemberEditPage from '../pages/member_edit';
 import CurrentEditPage from '../pages/currentprojectedit';
 import SightEditPage from '../pages/sight_edit';
 import SightSoundPage from '../pages/sight_sound';
+import WatchPage from '../pages/watch';
 
 const authRoutes: IRoute[] = [
     {
@@ -74,7 +75,14 @@ const mainRoutes: IRoute[] = [
         component: ArticlePage,
         auth: false
     },
-
+    
+    {
+        name: 'Video Watch',
+        path: '/watch',
+        exact: true,
+        component: WatchPage,
+        auth: false
+    },
     {
         name: 'Honours',
         path: '/honours',

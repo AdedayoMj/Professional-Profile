@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Card, CardImg, Col, Container, Modal, ModalBody, ModalFooter, Row } from 'reactstrap';
+// import { Link } from 'react-router-dom';
+import { Card, CardImg, Col, Container, Modal, ModalBody, ModalFooter, Row } from 'reactstrap';
 // import ISight from '../../interfaces/sight';
-import * as awards from '../../assets/images/awards.jpg';
+// import * as awards from '../../assets/images/awards.jpg';
 // import Img from 'react-cool-img';
 // import loadingImage from '../../assets/images/loading.gif';
 // import errorImage from '../../assets/images/error.svg';

@@ -25,17 +25,17 @@ const HomeGridLayout: React.FunctionComponent<IGridLayout> = (props) => {
         {
             title: 'Sights & Sound',
             image: outing.default,
-            link: '/engagement'
+            link: '/sight'
         },
         {
             title: 'Academic',
             image: academic.default,
-            link: '/academic'
+            link: '/current'
         },
         {
-            title: 'Current Research',
+            title: 'Media Outreach',
             image: research.default,
-            link: '/current'
+            link: '/watch'
         },
         {
             title: 'Honours',
