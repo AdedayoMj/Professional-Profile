@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { RouteComponentProps, useHistory } from 'react-router-dom';
-import { Button, FormGroup, Input, Spinner } from 'reactstrap';
-import queryString from 'querystring';
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+// import { Button, FormGroup, Input } from 'reactstrap';
+// import queryString from 'querystring';
 import IPageProps from '../interfaces/pages';
 import CenterPiece from '../components/centerpiece';
 // import logging from '../config/logging';
 // import { auth } from '../config/firebase';
-import ErrorText from '../components/errortext';
+// import ErrorText from '../components/errortext';
 
 const ResetPasswordPage: React.FunctionComponent<IPageProps & RouteComponentProps> = props => {
-    const [verifying, setVerifying] = useState<boolean>(true);
-    const [verified, setVerified] = useState<boolean>(false);
-    const [changing, setChanging] = useState<boolean>(false);
-    const [password, setPassword] = useState<string>('');
-    const [confirm, setConfirm] = useState<string>('');
-    const [oobCode, setOobCode] = useState<string>('');
-    const [error, setError] = useState<string>('');
+    // const [verifying, setVerifying] = useState<boolean>(true);
+    // const [verified, setVerified] = useState<boolean>(false);
+    // const [changing, setChanging] = useState<boolean>(false);
+    // const [password, setPassword] = useState<string>('');
+    // const [confirm, setConfirm] = useState<string>('');
+    // const [oobCode, setOobCode] = useState<string>('');
+    // const [error, setError] = useState<string>('');
 
-    const history = useHistory();
+    // const history = useHistory();
  
     // useEffect(() => {
         // logging.info('Extracting code');
@@ -48,7 +48,7 @@ const ResetPasswordPage: React.FunctionComponent<IPageProps & RouteComponentProp
         // }
         // eslint-disable-next-line
     // }, []);
-    const verifyPasswordResetLink = (_oobCode: string) => {
+    // const verifyPasswordResetLink = (_oobCode: string) => {
         // auth.verifyPasswordResetCode(_oobCode)
         // .then(result => {
         //     logging.info(result);
@@ -61,16 +61,16 @@ const ResetPasswordPage: React.FunctionComponent<IPageProps & RouteComponentProp
         //     setVerified(false);
         //     setVerifying(false);
         // });
-    }
+    // }
 
-    const passwordResetRequest = () => {
-        if (password !== confirm)
-        {
-            setError('Make sure your passwords are matching');
-            return;
-        }
+    // const passwordResetRequest = () => {
+        // if (password !== confirm)
+        // {
+        //     setError('Make sure your passwords are matching');
+        //     return;
+        // }
 
-        if (error !== '') setError('');
+        // if (error !== '') setError('');
 
         // setChanging(true);
 
@@ -83,12 +83,12 @@ const ResetPasswordPage: React.FunctionComponent<IPageProps & RouteComponentProp
         //     setError(error.message);
         //     setChanging(false);
         // })
-    }
+    // }
 
  
     return (
         <CenterPiece header="Change Password">
-          {verifying ?
+          {/* {verifying ?
                 // <Spinner color="info" />
                 <div>Test</div>
             :
@@ -132,7 +132,7 @@ const ResetPasswordPage: React.FunctionComponent<IPageProps & RouteComponentProp
                         <p>Invalid link.</p>
                     }
                 </>
-            }
+            } */}
     </CenterPiece>
     );
 }

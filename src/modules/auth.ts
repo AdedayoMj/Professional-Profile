@@ -1,7 +1,7 @@
 import axios from 'axios';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 import config from '../config/config';
-import { auth } from '../config/firebase';
+// import { auth } from '../config/firebase';
 import logging from '../config/loggin';
 import IUser from '../interfaces/user';
 

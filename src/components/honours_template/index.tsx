@@ -1,6 +1,4 @@
-import userEvent from '@testing-library/user-event';
 import axios from 'axios';
-import { error } from 'console';
 import { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button, Container, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
@@ -54,10 +52,11 @@ const HonourTemplate: React.FunctionComponent<IHonourProps> = (props) => {
     };
     return (
         <section style={{ marginBottom: '3rem' }}>
+            <ErrorText error={error} />
             <Container style={{ background: 'whitesmoke' }}>
                 <Row style={{ justifyContent: 'space-between', marginLeft: '0.4rem', marginRight: '0.4rem' }}>
                     <h5>{sectionTitle}</h5>
-                    <a>
+                    <span >
                         {' '}
                         {fire_token != null ? (
                             <Button color="info" className="mr-2" tag={Link} to={`/${editPage}`}>
@@ -66,7 +65,7 @@ const HonourTemplate: React.FunctionComponent<IHonourProps> = (props) => {
                         ) : (
                             ''
                         )}
-                    </a>
+                    </span>
                 </Row>
             </Container>
             <hr />

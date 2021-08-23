@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Col, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import Container from 'reactstrap/es/Container';
 
-import VideoPlayer from '../videoplayer';
+// import VideoPlayer from '../videoplayer';
 import './footer.css';
 
 export interface INavigationProps {}

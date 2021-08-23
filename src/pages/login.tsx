@@ -17,7 +17,7 @@ const LoginPage: React.FunctionComponent<IPageProps> = (props) => {
 
     const userContext = useContext(UserContext);
     const history = useHistory();
-    const isLogin = window.location.pathname.includes('login');
+    // const isLogin = window.location.pathname.includes('login');
 
     const fire_token = localStorage.getItem('fire_token');
 

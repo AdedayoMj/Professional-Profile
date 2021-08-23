@@ -1,3 +1,4 @@
+
 import config from '../../../config/config';
 
 interface UploadFileResponse {
@@ -25,8 +26,7 @@ class FileService {
     }
 
     async uploadFile(): Promise<UploadFileResponse> {
-        console.log(this.getFormData);
-
+  
         const uploadResponse = await fetch(`${config.server.url}api/sighsound/create`, {
             method: 'POST',
             body: this.getFormData()
@@ -40,16 +40,18 @@ class FileService {
                 message: responseJson.message
             };
         }
-
+        
         return {
             success: true,
-            message: 'Uploaded Successfully'
+            message: 'Uploaded Successfully',
+            
         };
+        
     }
 
     private getFormData(): FormData {
         const formData = new FormData();
-        formData.append('file', this.file);
+        formData.append('picture', this.file);
         formData.append('title', this.title);
         return formData;
     }

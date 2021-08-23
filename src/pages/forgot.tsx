@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom';
 import { Button, FormGroup, Input } from 'reactstrap';
 import CenterPiece from '../components/centerpiece';
 import ErrorText from '../components/errortext';
+import { auth } from '../config/firebase';
+import logging from '../config/loggin';
 // import { auth } from '../config/firebase';
 // import logging from '../config/logging';
 
@@ -21,17 +23,17 @@ const ForgotPasswordChange: React.FunctionComponent<IPageProps> = props => {
 
         setSending(true);
 
-        // auth.sendPasswordResetEmail(email)
-        // .then(() => {
-        //     logging.info('Email sent.');
-        //     setSent(true);
-        //     setSending(false);
-        // })
-        // .catch(error => {
-        //     logging.error(error);
-        //     setError(error.message);
-        //     setSending(false);
-        // });
+        auth.sendPasswordResetEmail(email)
+        .then(() => {
+            logging.info('Email sent.');
+            setSent(true);
+            setSending(false);
+        })
+        .catch(error => {
+            logging.error(error);
+            setError(error.message);
+            setSending(false);
+        });
     }
 
     if (fire_token !== null) return <Redirect to="/" />;

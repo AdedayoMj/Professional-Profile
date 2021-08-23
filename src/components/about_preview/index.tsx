@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Card, CardImg, Col, Container, Row } from 'reactstrap';
 import DownloadLink from '../dowloadlink';
+import * as aboutOye  from '../../assets/images/aboutoye.jpg'
 
 export interface IBlogPreviewProps {
     _id: string;
@@ -18,7 +19,7 @@ export interface IBlogPreviewProps {
 
 const AboutPreview: React.FunctionComponent<IBlogPreviewProps> = (props) => {
     const { _id, author, children, createdAt, updatedAt, content, title, userid, authorId } = props;
-
+    const about=aboutOye.default
     const showTime = () => {};
     const fire_token = localStorage.getItem('fire_token');
     return (
@@ -47,7 +48,8 @@ const AboutPreview: React.FunctionComponent<IBlogPreviewProps> = (props) => {
             <Row>
                 <Col lg="5" style={{ alignItems: 'center', justifyContent: 'center', alignContent: 'center' }}>
                     <Card>
-                        <CardImg width="100%" src={process.env.PUBLIC_URL + '/aboutoye.jpg'} />
+                        {/* <CardImg width="100%" src={process.env.PUBLIC_URL + '/aboutoye.jpg'} /> */}
+                        <CardImg width="100%" src={about} />
                     </Card>
                 </Col>
                 <Col className="justify-content-between " lg="7" style={{ wordSpacing: '0.3rem' }}>

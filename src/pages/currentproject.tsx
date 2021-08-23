@@ -5,6 +5,7 @@ import PageHeader from '../components/pageheader';
 import axios from 'axios';
 import config from '../config/config';
 import LoadingComponent from '../components/loading_components';
+import ErrorText from '../components/errortext';
 
 export interface IErrorProps {}
 const CurrentProjectPage: React.FunctionComponent<IErrorProps> = (props) => {
@@ -44,12 +45,13 @@ const CurrentProjectPage: React.FunctionComponent<IErrorProps> = (props) => {
         return <LoadingComponent>Loading Project...</LoadingComponent>;
     }
 
-    const currentProject = {};
+    // const currentProject = {};
     // "Genetic Selection for Health beneficial Long-chain omega-3s in Australian White lambs (PhD , Secondary Advisor)",
     // "Longitudinal Study on Allostatic Load Biomarkers and its Impact on Mental Illness/Health (PhD , Secondary Advisor)"
 
     return (
         <PageHeader title="Current Project">
+            <ErrorText error={error} />
             <CurrentTemplate sectionTitle="Current" currentArray={current} />
         </PageHeader>
     );

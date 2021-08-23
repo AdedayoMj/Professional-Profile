@@ -18,6 +18,7 @@ import OtherHonorEditPage from '../pages/other_honor_edit';
 import MemberEditPage from '../pages/member_edit';
 import CurrentEditPage from '../pages/currentprojectedit';
 import SightEditPage from '../pages/sight_edit';
+import SightSoundPage from '../pages/sight_sound';
 
 const authRoutes: IRoute[] = [
     {
@@ -79,6 +80,13 @@ const mainRoutes: IRoute[] = [
         path: '/honours',
         exact: true,
         component: HonoursPage,
+        auth: false
+    },
+    {
+        name: 'Sights',
+        path: '/sight',
+        exact: true,
+        component: SightSoundPage,
         auth: false
     }
 ];

@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { auth } from '../../config/firebase';
 import UserContext from '../../context/user';
 // import ModalPopUp from '../modal';
 import {
@@ -21,7 +20,6 @@ import {
     ModalBody,
     ModalFooter,
     ModalHeader,
-    Dropdown
 } from 'reactstrap';
 
 export interface INavigationProps {}
@@ -106,7 +104,7 @@ const Naviagtion: React.FunctionComponent<INavigationProps> = (props) => {
                         </NavItem>
                         {separatorLine}
                         <NavItem>
-                            <NavLink tag={Link} to="/honours" style={{ color: 'white' }}>
+                            <NavLink tag={Link} to="/sight" style={{ color: 'white' }}>
                                 Sights & Sounds
                             </NavLink>
                         </NavItem>

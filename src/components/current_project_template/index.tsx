@@ -52,7 +52,7 @@ const CurrentTemplate: React.FunctionComponent<IHonourProps> = (props) => {
             <Container style={{ background: 'whitesmoke' }}>
                 <Row style={{ justifyContent: 'space-between', marginLeft: '0.4rem', marginRight: '0.4rem' }}>
                     <h5>{sectionTitle}</h5>
-                    <a>
+                    <span>
                         {' '}
                         {fire_token != null ? (
                             <Button color="info" className="mr-2" tag={Link} to={`/editCurrentProject`}>
@@ -61,7 +61,7 @@ const CurrentTemplate: React.FunctionComponent<IHonourProps> = (props) => {
                         ) : (
                             ''
                         )}
-                    </a>
+                    </span>
                 </Row>
             </Container>
             <hr />

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import IPageProps from '../interfaces/pages';
 import UserContext from '../context/user';
-import { Link, RouteComponentProps, withRouter, useParams } from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import config from '../config/config';
 import logging from '../config/loggin';

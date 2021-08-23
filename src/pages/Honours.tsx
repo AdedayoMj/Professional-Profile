@@ -6,6 +6,7 @@ import axios from 'axios';
 import config from '../config/config';
 import HonourTemplate from '../components/honours_template';
 import LoadingComponent from '../components/loading_components';
+import ErrorText from '../components/errortext';
 
 const HonoursPage: React.FunctionComponent<IPageProps> = (props) => {
     const [awards, setAward] = useState<IHonours[]>([]);
@@ -113,6 +114,7 @@ const HonoursPage: React.FunctionComponent<IPageProps> = (props) => {
 
     return (
         <PageHeader title="Honours">
+            <ErrorText error={error} />
             <HonourTemplate urlUnique="award" editPage="editAward" sectionTitle="Awards" honourArray={awards} />
             <HonourTemplate urlUnique="fellow" editPage="editFellow" sectionTitle="Fellowships" honourArray={fellowship} />
             <HonourTemplate urlUnique="member" editPage="editMember" sectionTitle="Memberships" honourArray={member} />

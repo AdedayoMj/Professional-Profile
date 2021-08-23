@@ -7,6 +7,7 @@ import PageHeader from '../components/pageheader';
 import config from '../config/config';
 import IArticle from '../interfaces/article';
 import { Container } from 'reactstrap';
+import ErrorText from '../components/errortext';
 
 export interface IErrorProps {}
 
@@ -49,6 +50,7 @@ const ArticlePage: React.FunctionComponent<IErrorProps & RouteComponentProps<any
 
     return (
         <PageHeader title="Articles">
+            <ErrorText error={error} />
             <ListTemplate sectionTitle="Journal Articles" articleArray={article} />
 
             <Container style={{ background: 'whitesmoke' }}>

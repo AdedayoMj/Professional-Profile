@@ -15,7 +15,6 @@
         "@types/jest": "^26.0.24",
         "@types/node": "^12.20.19",
         "@types/node-sass": "^4.11.2",
-        "@types/react": "^17.0.17",
         "@types/react-bootstrap-table-next": "^4.0.15",
         "@types/react-dom": "^17.0.9",
         "@types/react-draft-wysiwyg": "^1.13.3",
@@ -32,6 +31,7 @@
         "node-sass": "^6.0.1",
         "react": "^17.0.2",
         "react-bootstrap": "^2.0.0-beta.4",
+        "react-cool-img": "^1.2.12",
         "react-dom": "^17.0.2",
         "react-draft-wysiwyg": "^1.14.7",
         "react-router-dom": "^5.2.0",
@@ -66,6 +66,7 @@
         ]
     },
     "devDependencies": {
+        "@types/react": "^17.0.19",
         "@types/video.js": "^7.3.26"
     }
 }

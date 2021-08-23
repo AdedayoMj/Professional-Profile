@@ -1,34 +1,29 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import IPageProps from '../interfaces/pages';
-import UserContext from '../context/user';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import axios from 'axios';
-import config from '../config/config';
-import logging from '../config/loggin';
+// import UserContext from '../context/user';
+import { useHistory } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import LoadingComponent from '../components/loading_components';
-import { Container, Form, FormGroup, Label, Input, Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { Container, Form, FormGroup, Label, Input, Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import ErrorText from '../components/errortext';
 import Header from '../components/header';
 import SuccessText from '../components/successtext';
-import ISight from '../interfaces/sight';
-
-import FileUpload from '../components/fileupload';
 import { validateFileSize, validateFileType } from '../components/fileupload/services/filevalidatorServices';
 import FileService from '../components/fileupload/services/fileService';
 import { createStandaloneToast } from '@chakra-ui/react';
 
 const SightEditPage: React.FunctionComponent<IPageProps & RouteComponentProps<any>> = (props) => {
-    const [_id, setId] = useState<string>('');
+    // const [_id, setId] = useState<string>('');
     const [isFileTypesModalOpen, setIsFilesTypeModalOpen] = useState<boolean>(false);
     const [picture, setPicture] = useState<File>();
     const [title, setTitle] = useState<string>('');
     const acceptedFileTypes: string[] = ['jpeg', 'png', 'jpg', 'gif'];
-    const [saving, setSaving] = useState<boolean>(false);
+    // const [saving, setSaving] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(true);
     const [success, setSuccess] = useState<string>('');
     const [error, setError] = useState<string>('');
-
-    const { user } = useContext(UserContext).userState;
+    const history = useHistory();
+    // const { user } = useContext(UserContext).userState;
     useEffect(() => {
         setLoading(false);
         // let articleID = props.match.params.articleID;
@@ -68,9 +63,7 @@ const SightEditPage: React.FunctionComponent<IPageProps & RouteComponentProps<an
         }
     };
     const handleSubmit = async () => {
-        console.log(picture);
-
-        if (title == '') {
+        if (title === '') {
             setError('Title field is empty');
             return;
         }
@@ -86,16 +79,19 @@ const SightEditPage: React.FunctionComponent<IPageProps & RouteComponentProps<an
         const fileUploadResponse = await fileService.uploadFile();
 
         // element.value = '';
+        console.log(fileUploadResponse);
+        if (fileUploadResponse.success === true) {
+            const toast = createStandaloneToast();
 
-        const toast = createStandaloneToast();
-
-        toast({
-            title: fileUploadResponse.success ? 'File Uploaded' : 'Upload Failed',
-            description: fileUploadResponse.message,
-            status: fileUploadResponse.success ? 'success' : 'error',
-            duration: 3000,
-            isClosable: true
-        });
+            history.push('/sight');
+            toast({
+                title: fileUploadResponse.success ? 'File Uploaded' : 'Upload Failed',
+                description: fileUploadResponse.message,
+                status: fileUploadResponse.success ? 'success' : 'error',
+                duration: 3000,
+                isClosable: true
+            });
+        }
     };
 
     if (loading) return <LoadingComponent />;
@@ -119,9 +115,8 @@ const SightEditPage: React.FunctionComponent<IPageProps & RouteComponentProps<an
                             type="file"
                             name="picture"
                             id="year"
-                            accept=".png, .jpg, .jpeg, .gif"
                             placeholder="Picture"
-                            disabled={saving}
+                            // disabled={saving}
                             onChange={(e: SyntheticEvent) => handleFileUpload(e.currentTarget as HTMLInputElement)}
                         />
                     </FormGroup>
@@ -133,7 +128,7 @@ const SightEditPage: React.FunctionComponent<IPageProps & RouteComponentProps<an
                             value={title}
                             id="title"
                             placeholder="Enter a title"
-                            disabled={saving}
+                            // disabled={saving}
                             onChange={(event) => {
                                 setTitle(event.target.value);
                             }}
@@ -144,7 +139,7 @@ const SightEditPage: React.FunctionComponent<IPageProps & RouteComponentProps<an
                         <SuccessText success={success} />
                     </FormGroup>
                     <FormGroup>
-                        <Button style={{ backgroundColor: '#222454' }} block disabled={saving} onClick={handleSubmit}>
+                        <Button style={{ backgroundColor: '#222454' }} block onClick={handleSubmit}>
                             <i className="fas fa-save mr-1"></i>
                             Upload
                         </Button>
