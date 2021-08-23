@@ -8,8 +8,8 @@ const config = {
         appId: '1:925674155692:web:a9e5fd40ab04192755f909'
     },
     server: {
-        // url: 'https://profileserver.herokuapp.com/'
-        url: 'http://localhost:2121/'
+        url: 'https://profileserver.herokuapp.com/'
+        // url: 'http://localhost:2121/'
     }
 };
 
